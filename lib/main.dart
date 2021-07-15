@@ -1,11 +1,32 @@
+import 'package:aplikasi_organisasi_mobile/list_view_anggota.dart';
 import 'package:flutter/material.dart';
-import 'page_anggota_aktif.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  MyAppState createState() => MyAppState();
+}
+
+class MyAppState extends State<MyApp> {
+  int _pageIndex = 0;
+
+  static var _pages = [
+    ListViewAnggota(
+      aktif: false,
+    ),
+    ListViewAnggota(
+      aktif: true,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _pageIndex = index;
+    });
+  }
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -27,8 +48,20 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("Aplikasi Organisasi"),
         ),
-        body: Center(
-          child: PageAnggotaAktif(),
+        body: Center(child: _pages.elementAt(_pageIndex)),
+        bottomNavigationBar: BottomNavigationBar(
+          onTap: _onItemTapped,
+          currentIndex: _pageIndex,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.indeterminate_check_box),
+              label: "Tidak Aktif",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.check_box),
+              label: "Aktif",
+            ),
+          ],
         ),
       ),
     );

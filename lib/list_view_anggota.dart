@@ -3,6 +3,10 @@ import 'package:aplikasi_organisasi_mobile/services/database_handler.dart';
 import 'package:flutter/material.dart';
 
 class ListViewAnggota extends StatefulWidget {
+  final bool? aktif;
+
+  ListViewAnggota({Key? key, this.aktif}) : super(key: key);
+
   ListViewAnggotaState createState() => ListViewAnggotaState();
 }
 
