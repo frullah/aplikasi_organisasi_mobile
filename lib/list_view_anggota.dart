@@ -22,22 +22,23 @@ class ListViewAnggotaState extends State<ListViewAnggota> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: this.handler.retrieve(aktif: widget.aktif),
-        builder: (BuildContext context, AsyncSnapshot<List<Anggota>> snapshot) {
-          if (snapshot.hasData) {
-            return ListView.builder(
-                itemCount: snapshot.data?.length,
-                itemBuilder: (context, i) {
-                  var data = snapshot.data![i];
-                  return Card(
-                      child: ListTile(
-                    title: Text(data.nama),
-                    subtitle: Text(data.kode),
-                  ));
-                });
-          } else {
-            return Center(child: CircularProgressIndicator());
-          }
-        });
+      future: this.handler.retrieve(aktif: widget.aktif),
+      builder: (BuildContext context, AsyncSnapshot<List<Anggota>> snapshot) {
+        if (snapshot.hasData) {
+          return ListView.builder(
+              itemCount: snapshot.data?.length,
+              itemBuilder: (context, i) {
+                var data = snapshot.data![i];
+                return Card(
+                    child: ListTile(
+                  title: Text(data.nama),
+                  subtitle: Text(data.kode),
+                ));
+              });
+        } else {
+          return Center(child: CircularProgressIndicator());
+        }
+      },
+    );
   }
 }

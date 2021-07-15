@@ -13,12 +13,8 @@ class MyAppState extends State<MyApp> {
   int _pageIndex = 0;
 
   static var _pages = [
-    ListViewAnggota(
-      aktif: false,
-    ),
-    ListViewAnggota(
-      aktif: true,
-    ),
+    ListViewAnggota(aktif: false),
+    ListViewAnggota(aktif: true),
   ];
 
   void _onItemTapped(int index) {
