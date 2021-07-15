@@ -25,27 +25,9 @@ class DatabaseHandler {
     );
   }
 
-  Future<int> insertUser(List<Anggota> anggota) async {
-    int result = 0;
-    final Database db = await initializeDB();
-    for (var user in anggota) {
-      result = await db.insert('anggota', user.toMap());
-    }
-    return result;
-  }
-
-  Future<List<Anggota>> getAnggota() async {
+  Future<List<Anggota>> retrieve() async {
     final Database db = await initializeDB();
     final List<Map<String, Object?>> queryResult = await db.query('anggota');
     return queryResult.map((e) => Anggota.fromMap(e)).toList();
-  }
-
-  Future<void> deleteUser(int id) async {
-    final db = await initializeDB();
-    await db.delete(
-      'anggota',
-      where: "id = ?",
-      whereArgs: [id],
-    );
   }
 }
