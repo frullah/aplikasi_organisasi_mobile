@@ -18,7 +18,7 @@ class ListViewAnggotaState extends State<ListViewAnggota> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: this.handler.retrieve(),
+        future: this.handler.retrieve(aktif: widget.aktif),
         builder: (BuildContext context, AsyncSnapshot<List<Anggota>> snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:aplikasi_organisasi_mobile/model/anggota.dart';
+import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -69,9 +70,16 @@ class DatabaseHandler {
     );
   }
 
-  Future<List<Anggota>> retrieve() async {
+  Future<List<Anggota>> retrieve({bool? aktif}) async {
+    String? where;
+
+    if (aktif != null) {
+      where = "status = $aktif";
+    }
+
     final Database db = await initializeDB();
-    final List<Map<String, Object?>> queryResult = await db.query('anggota');
+    final List<Map<String, Object?>> queryResult =
+        await db.query("anggota", where: where);
     return queryResult.map((e) => Anggota.fromMap(e)).toList();
   }
 }
