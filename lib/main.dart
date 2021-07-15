@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home_page.dart';
+import 'page_anggota_aktif.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,7 +23,14 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(title: 'Aplikasi Organisasi'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Aplikasi Organisasi"),
+        ),
+        body: Center(
+          child: PageAnggotaAktif(),
+        ),
+      ),
     );
   }
 }
