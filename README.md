@@ -6,8 +6,14 @@ dibuat menggunakan [Flutter](https://flutter.dev/)
 
 - [Flutter](https://flutter.dev/)
 - [Android SDK](https://developer.android.com/studio)
+- [Android Studio](https://developer.android.com/studio) (jika ingin menggunakan android emulator)
 
-## Build
+## Pengembangan
+
+- pasang [VSCode](https://code.visualstudio.com/)
+- pasang ekstensi `Flutter` VSCode
+
+## Rilis
 
 ```bash
 flutter build apk --split-per-abi
