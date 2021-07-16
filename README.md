@@ -6,7 +6,7 @@ dibuat menggunakan [Flutter](https://flutter.dev/)
 
 - [Flutter](https://flutter.dev/)
 - [Android SDK](https://developer.android.com/studio)
-- [Android Studio](https://developer.android.com/studio) (jika ingin menggunakan android emulator)
+- [Android Studio](https://developer.android.com/studio) (jika ingin menggunakan android emulator dengan cara yang mudah)
 
 ## Pengembangan
 
