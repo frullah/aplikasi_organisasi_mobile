@@ -6,3 +6,9 @@ dibuat menggunakan [Flutter](https://flutter.dev/)
 
 - [Flutter](https://flutter.dev/)
 - [Android SDK](https://developer.android.com/studio)
+
+## Build
+
+```bash
+flutter build apk --split-per-abi
+```
